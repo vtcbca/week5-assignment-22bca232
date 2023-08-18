@@ -1,0 +1,62 @@
+Write a python program create csv file student.csv(sid,sname,city,contact) using 10 records 
+
+(in which 5 records input directly and 5 records take input from user) write records into this file.
+
+import csv
+
+insert=[[1,'om','madhi',9876543210],
+        [2,'sai','surat',7654321890],
+        [3,'ram','bardoli',8765432190],
+        [4,'radha','ayodhya',9876543211],
+        [5,'kishan','vrindavan',91234]]
+
+
+for i in range(5):
+    sid=int(input('Enter Student Id:'))
+    sname=input('Enter Student Name:')
+    city=input('Enter Student City:')
+    contact=int(input('Enter Student Contact:'))
+    insert.append((sid,sname,city,contact))
+Enter Student Id: 6
+Enter Student Name: seeya
+Enter Student City: surat
+Enter Student Contact: 8765432190
+Enter Student Id: 7
+Enter Student Name: kinjal
+Enter Student City: kamrej
+Enter Student Contact: 9897654321
+Enter Student Id: 8
+Enter Student Name: veena
+Enter Student City: olpad
+Enter Student Contact: 9876543210
+Enter Student Id: 9
+Enter Student Name: niya
+Enter Student City: vihan
+Enter Student Contact: 9876512340
+Enter Student Id: 10
+Enter Student Name: vishva
+Enter Student City: surat
+Enter Student Contact: 9874560123
+    with open('student.csv','w',newline='') as csvfile:
+        w=csv.writer(csvfile)
+        header=['sid','sname','city','contact']
+        w.writerow(header)
+        w.writerows(insert)
+
+with open('student.csv','r') as csvfile:
+          r=csv.reader(csvfile)
+          for row in r:
+              print(row)
+
+['sid', 'sname', 'city', 'contact']
+['1', 'om', 'madhi', '9876543210']
+['2', 'sai', 'surat', '7654321890']
+['3', 'ram', 'bardoli', '8765432190']
+['4', 'radha', 'ayodhya', '9876543211']
+['5', 'kishan', 'vrindavan', '91234']
+['6', 'seeya', 'surat', '8765432190']
+['7', 'kinjal', 'kamrej', '9897654321']
+['8', 'veena', 'olpad', '9876543210']
+['9', 'niya', 'vihan', '9876512340']
+['10', 'vishva', 'surat', '9874560123']
+
